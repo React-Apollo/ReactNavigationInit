@@ -1,27 +1,45 @@
-/* eslint-disable no-shadow */
-import React, { Component } from 'react'
+import React from 'react';
+import { Image, Button, StyleSheet, Text, View } from 'react-native';
+import { AuthSession } from 'expo';
 
-import {
-  ActivityIndicator,
-  View,
-  StyleSheet,
-  Text,
-  Linking,
-  Image,
-  WebView,
-  Platform,
-  Modal
-} from 'react-native'
+const  CLIENT_ID='f42cc948b4ed106566f2';
 
-class LoginScreen extends Component {
-  render () {
+export  class LoginScreen extends React.Component {
+  state = {
+    userInfo: null,
+  };
+
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        
+          <Button title="Ope  Github Login" onPress={this._handlePressAsync} />
+      
+      </View>
+    );
+  }
+
+  
+
+  _handlePressAsync = async () => {
+    let redirectUrl = AuthSession.getRedirectUrl();
+
+    // You need to add this url to your authorized redirect urls on your Facebook app
+    console.log({ redirectUrl });
+
     
 
-    return (
+    let result = await AuthSession.startAsync({
+      authUrl:
+        `https://github.com/login/oauth/authorize?response_type=token&client_id=${CLIENT_ID}` +
+         `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+    });
 
-      <Text>Login...</Text>
-    )
-  }
-};
+    if (result) {
+      this.props.navigation.navigate('Welcome', result.params);  
+      
+    }
 
-export default LoginScreen
+    
+  };
+}

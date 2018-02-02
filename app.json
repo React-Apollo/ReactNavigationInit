@@ -1,5 +1,8 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "name": "My app",
+    "slug": "ReactNavigationFramework",
+    "sdkVersion": "25.0.0",
+    "privacy": "public"
   }
 }

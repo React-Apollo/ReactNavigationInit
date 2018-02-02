@@ -16,12 +16,12 @@ const styles = StyleSheet.create({
   }
 })
 
-class SplashScreen extends Component {
+export class SplashScreen extends Component {
   componentDidMount () {
     const isAuthenticated = true;
     const navigation=this.props;
 
-    if (isAuthenticated) {
+    if (!isAuthenticated) {
         this.props.navigation.navigate('Main', navigation)
     } else {
         this.props.navigation.navigate('Login', navigation)
@@ -40,4 +40,4 @@ class SplashScreen extends Component {
   }
 };
 
-export default  SplashScreen
+
