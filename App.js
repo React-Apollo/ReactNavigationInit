@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet} from 'react-native'
 import {GitPoint} from './routes'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient, HttpLink, InMemoryCache} from 'apollo-client-preset';
