@@ -3,4 +3,4 @@ language: node_js
 node_js:
   - '8'
 
-script: node node_modules/jest/bin/jest.js
+script: yarn jest
