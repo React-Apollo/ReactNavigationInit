@@ -1,5 +1,5 @@
 import React from 'react';
-import {WelcomeScreen} from './app/auth/welcome.screen';
+import WelcomeScreen from './app/auth/welcome.screen';
 
 import renderer from 'react-test-renderer';
 
