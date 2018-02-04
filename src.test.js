@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './App';
+import {WelcomeScreen} from './app/auth/welcome.screen';
 
 import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered =  true;
-  expect(rendered).toBeTruthy();
+    const rendered = renderer.create(<WelcomeScreen />).toJSON();
+    expect(rendered).toBeTruthy();
 });
