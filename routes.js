@@ -12,27 +12,28 @@ import { Icon } from 'react-native-elements'
 
 import { colors } from './app/utils'
 //import { translate } from 'utils';
-import {tab1, list1 } from './app/tab1'
+import tab1 from './app/tab1/tab1.screen';
+import {list1} from './app/tab1';
 import {tab2, list2 } from './app/tab2'
 import {tab3, list3 } from './app/tab3'
 import {tab4, list4 } from './app/tab4'
-
+import Detail from './app/common/Detail'
 import {SplashScreen, LoginScreen, WelcomeScreen} from './app/auth'
 
-// const sharedRoutes = {
-//   RepositoryList: {
-//     screen: RepositoryListScreen,
-//     navigationOptions: ({ navigation }) => ({
-//       title: navigation.state.params.title,
-//     }),
-//   },
-//   StarredRepositoryList: {
-//     screen: StarredRepositoryListScreen,
-//     navigationOptions: ({ navigation }) => ({
-//       title: navigation.state.params.title,
-//     }),
-//   }
-//   };
+const sharedRoutes = {
+  Detail: {
+    screen: Detail,
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.title,
+    }),
+  }
+  // StarredRepositoryList: {
+  //   screen: StarredRepositoryListScreen,
+  //   navigationOptions: ({ navigation }) => ({
+  //     title: navigation.state.params.title,
+  //   }),
+  // }
+  };
 
 const HomeStackNavigator = StackNavigator(
   {
@@ -47,7 +48,8 @@ const HomeStackNavigator = StackNavigator(
       navigationOptions: {
           headerTitle: 'list1'
         }
-    }
+    },
+    ...sharedRoutes,
 
   },
   {

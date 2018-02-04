@@ -21,7 +21,7 @@ export class SplashScreen extends Component {
     const isAuthenticated = true;
     const navigation=this.props;
 
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
         this.props.navigation.navigate('Main', navigation)
     } else {
         this.props.navigation.navigate('Login', navigation)
